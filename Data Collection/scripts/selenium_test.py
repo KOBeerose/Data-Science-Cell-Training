@@ -37,5 +37,5 @@ button.click()'''
 
 driver.get(driver.current_url+"friends")
 
-
+# Complete the follwing script to get data about your facebook friends
 # driver.quit()
