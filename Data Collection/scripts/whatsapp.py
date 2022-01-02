@@ -12,44 +12,57 @@ from selenium.webdriver import ActionChains
 
 import time
 
-browser = webdriver.Chrome(executable_path="C:\\Users\\taha_\\Downloads\\chromedriver_win32\\chromedriver.exe")
+options = webdriver.ChromeOptions()
+options.add_argument("start-maximized")
+options.add_argument("disable-infobars")
+options.add_argument("--disable-extensions")
+browser = webdriver.Chrome(chrome_options=options, executable_path="C:\\Users\\taha_\\Downloads\\chromedriver_win32\\chromedriver.exe")
 browser.get('https://web.whatsapp.com/')
 wait = WebDriverWait(browser, 2000)
 
 
-target_group = '"DATA Cell - CIT"' #group name 
+target_group = '"DATA Cell 📢 Announcement📢"' #group name 
 message = "Hello! this is an automated test using selenium" #target msg
 working = True
 recieved = {'You'}
 target_names = set()
 
+
 def get_grp_menu(target):
     x_arg = ' //span[contains(@title, ' + target +')]'
     target = wait.until(ec.presence_of_element_located((By.XPATH, x_arg)))
+    
     target.click()
     menu = browser.find_element_by_xpath("//div[@class='_1QVfy _3UaCz']//div//div[@class='_2cNrC']//div[@class='_26lC3']//span")
     menu.click()
-    time.sleep(.5)
+    # time.sleep(0.5) unnecessary
     group_info = browser.find_element_by_xpath("//div[contains(text(),'Group info')]")
     group_info.click()
-    time.sleep(.5)
-    view_all = browser.find_element_by_xpath("//div[@class='ggj6brxn ljrqcn24 dmdq60dq']")
-    view_all.click()
-
+    # time.sleep(0.5) unnecessary
+    # view_all = browser.find_element_by_xpath("//div[@class='ggj6brxn ljrqcn24 dmdq60dq']")
+    # view_all.click()
+    
 def send_hello():
     global working
     global target_names
     i = 0
     while working:
         targets = browser.find_elements_by_xpath("//div[@class='tt8xd2xn dl6j7rsh mpdn4nr2 avk8rzj1']//div//div[@class='_3uIPm WYyr1']//span[@class='ggj6brxn gfz4du6o r7fjleex g0rxnol2 lhj4utae le5p0ye3 l7jjieqr i0jNr']")
+        # targets = browser.find_elements_by_xpath("//div[@class='nBIOd tm2tP copyable-area']//div[@class='_3Bc7H KPJpj']//div//div//div[@class='_3uIPm WYyr1']")
+
         item = targets[i]
+        browser.execute_script("arguments[0].scrollIntoView(true);", item)
         if i == 0 : target_names = set(map(lambda x: x.text ,  targets))
         
         if item.text not in recieved and item.text!= "You":
             name = item.text
+            # time.sleep(0.5) unnecessary
             item.click()
+            
+            # browser.execute_script("arguments[0].click();", item)
+            # ActionChains(browser).actions.move_to_element(item).click().perform()
             input_box = browser.find_element_by_xpath("//div[@title = 'Type a message']")
-            input_box.send_keys("Hello "+name+"!" + "I am just testing selenium on whatsapp group" + Keys.ENTER)  
+            input_box.send_keys("Hello "+name+"!" + "I am just testing selenium on whatsapp group")  
             i+=1
             recieved.add(name)
             if recieved == target_names:
@@ -143,8 +156,8 @@ def send_msg():
 if __name__ == '__main__':
     get_grp_menu(target_group)
     while bool:
-        send_msg()
-        #send_hello()
+        #send_msg()
+        send_hello()
         #browser.close()
         break
 
