@@ -56,7 +56,7 @@ def send_hello():
             time.sleep(0.5) # unnecessary
             item.click()
             input_box = browser.find_element_by_xpath("//div[@title = 'Type a message']")
-            input_box.send_keys("Hello "+name+"!" + "I am just testing selenium on whatsapp group")  
+            input_box.send_keys("Hello "+name+"!" + "I am just testing selenium on whatsapp group"+ Keys.ENTER )  
             i+=1
             recieved.add(name)
             if recieved == target_names:
@@ -151,7 +151,7 @@ def send_msg():
 if __name__ == '__main__':
     get_grp_menu(target_group)
     while bool:
-        #send_msg()
+        # send_msg()
         send_hello()
         #browser.close()
         break
