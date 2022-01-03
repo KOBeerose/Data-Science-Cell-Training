@@ -1,0 +1,22 @@
+
+# first of all of should create your own Information.txt file and DELETE THIS ONE OF if you wanna push your code to GitHub 
+# Explaination: there a .gitignore file in which we put all the file and directories that we don't wanna push to GitHub and you definitely don't want your password to be public to anyone.
+# So we can add save our info locally in Infomation.txt file and add it to .gitignore file so that git will ignore it (BE CAREFULL OF SPELLING!)
+# !!! you can change the order but make sure to keep this format or change the code to match it otherwise !!!
+
+
+url: https://www.facebook.com/
+
+email: bot@mail.ai
+
+password: bot@mail.ai
+
+
+
+
+
+
+
+
+
+
