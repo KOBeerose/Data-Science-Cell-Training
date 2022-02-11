@@ -4,3 +4,5 @@
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 Information.txt
+*.csv
+!3-Exploratory Data Analysis/datadyalna.csv
