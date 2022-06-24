@@ -6,28 +6,32 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
-
-
-
-
 import time
 
+
+# defining the webdriver and config btw this code will be almost the same in all of your selenium scripts
 options = webdriver.ChromeOptions()
 options.add_argument("start-maximized")
 options.add_argument("disable-infobars")
 options.add_argument("--disable-extensions")
 browser = webdriver.Chrome(chrome_options=options, executable_path="C:\\Users\\taha_\\Downloads\\chromedriver_win32\\chromedriver.exe")
+
+# Opening browser and waiting until you scan the QR code
 browser.get('https://web.whatsapp.com/')
 wait = WebDriverWait(browser, 2000)
 
 
+# !!! CHANGE THE NAME OF THE GROUP THIS IS JUST A EXAMPLE (MATFRE3CH LINA RASNA B AUTOMATED MSG LAY7FDK) !!!
 target_group = '"DATA Cell 📢 Announcement📢"' #group name 
 message = "Hello! this is an automated test using selenium" #target msg
-working = True
-recieved = {'You'}
-target_names = set()
+
+# varibles that we will need
+working = True           # state of the script
+recieved = {'You'}       # set containing the people who recieved the msg
+target_names = set()     # set containt your targets with the msg
 
 
+# this function will enter the group conversation and open the "Group info" tab
 def get_grp_menu(target):
     x_arg = ' //span[contains(@title, ' + target +')]'
     target = wait.until(ec.presence_of_element_located((By.XPATH, x_arg)))
@@ -39,7 +43,8 @@ def get_grp_menu(target):
     group_info = browser.find_element_by_xpath("//div[contains(text(),'Group info')]")
     group_info.click()
     time.sleep(0.5) # unnecessary
-    
+
+# this function will send a hello msg 
 def send_hello():
     global working
     global target_names
@@ -80,9 +85,9 @@ def send_msg():
         if item.text not in recieved and item.text!= "You":
             name = item.text
             print(name)
-            time.sleep(1)
+            time.sleep(1)    # unnecessary
             item.click()
-            time.sleep(0.5)
+            time.sleep(0.5)  # unnecessary
 
             # Emoji Character in text
             text = [ "Hello "+name+ "! Here is the takeaway :docu", u'\ue007'," of the last 2 sessions:",
@@ -123,6 +128,8 @@ def send_msg():
 
             #input_box.send_keys(':emoji' u'\ue007')
             
+
+            # UNCOMMENT THE LINE BELOW TO SEND MSGS
             #input_box .send_keys(Keys.ENTER)
 
             i+=1
@@ -147,12 +154,12 @@ def send_msg():
                 break'''
             
 
-
+# !!! DON'T RUN THIS CODE IF YOU ARE NOT AWARE OF WHAT YOU ARE DOING  !!!
 if __name__ == '__main__':
     get_grp_menu(target_group)
     while bool:
         # send_msg()
-        send_hello()
+        # send_hello()
         #browser.close()
         break
 

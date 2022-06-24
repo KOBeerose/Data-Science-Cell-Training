@@ -1,4 +1,5 @@
 
+#importing all the necessary libaries
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
@@ -10,6 +11,7 @@ class FacebookCrawler:
     LOGIN_URL = 'https://www.facebook.com/login.php?login_attempt=1&lwv=111'
 
     def __init__(self, login, password):
+        # defining the webdriver and config btw this code will be almost the same in all of your selenium scripts
         chrome_options = webdriver.ChromeOptions()
         prefs = {"profile.default_content_setting_values.notifications": 2}
         chrome_options.add_experimental_option("prefs", prefs)

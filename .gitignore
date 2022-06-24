@@ -1,0 +1,8 @@
+# .gitignore tells git which files (or patterns) it should ignore. It's usually used to avoid 
+#  committing transient files from your working directory that aren't useful to other collaborators, 
+#  such as compilation products, temporary files IDEs create, etc.
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+Information.txt
+*.csv
+!3-Exploratory Data Analysis/datadyalna.csv

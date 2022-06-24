@@ -14,12 +14,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#intr">Introduction</a>
+      <a href="https://github.com/KOBeerose/Data-Science-Cell-Training/tree/main/1-Introduction">Introduction</a>
       <ul>
-        <li><a href="#overview">Overview</a></li>
-      </ul>
-        <ul>
-        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="https://github.com/KOBeerose/Data-Science-Cell-Training/blob/main/1-Introduction/Data%20Cell%20-%20Overview%20.pdf">Overview & Roadmap</a></li>
       </ul>
       <ul>
         <li><a href="#sources">Sources</a></li>
@@ -32,8 +29,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#data-collection">Data Collection</a></li>
-    <li><a href="#eda">Exploratory Data Analysis</a></li>
+    <li><a href="https://github.com/KOBeerose/Data-Science-Cell-Training/tree/main/2-Data%20Collection">Data Collection</a></li>
+    <li><a href="https://github.com/KOBeerose/Data-Science-Cell-Training/tree/main/3-Exploratory%20Data%20Analysis">Exploratory Data Analysis</a></li>
     <li><a href="#visualization">Visualization</a></li>
     <li><a href="#pre-processing">Pre-processing</a>
             <ul>
